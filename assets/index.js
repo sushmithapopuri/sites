@@ -42,7 +42,7 @@ function generateTree(node, parentPath = '', level = 0) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetch('assets.json')
+  fetch('assets/assets.json')
     .then(response => {
       if (!response.ok) throw new Error('Failed to load assets.json');
       return response.json();

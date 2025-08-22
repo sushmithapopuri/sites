@@ -4,6 +4,12 @@
 		"title": "Sarali Swaras",
 		"type": "folder",
 		"children": [
+			{ "name": "SS1.mp4", "type": "file", "title": "Sarali Swaras 1" },
+			{ "name": "SS2.mp4", "type": "file", "title": "Sarali Swaras 2" },
+			{ "name": "SS3.mp4", "type": "file", "title": "Sarali Swaras 3" },
+			{ "name": "SS4.mp4", "type": "file", "title": "Sarali Swaras 4" },
+			{ "name": "SS5.mp4", "type": "file", "title": "Sarali Swaras 5" },
+			{ "name": "SS6.mp4", "type": "file", "title": "Sarali Swaras 6" },
 			{ "name": "SS7.mp4", "type": "file", "title": "Sarali Swaras 7" },
 			{ "name": "SS8.mp4", "type": "file", "title": "Sarali Swaras 8" },
 			{ "name": "SS9.mp4", "type": "file", "title": "Sarali Swaras 9" },

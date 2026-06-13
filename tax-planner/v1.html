@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tax Planner</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="taxc.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Site wrapper -->
+  <!-- /header -->
+  <header class="navbar navbar-default fixed-top header">
+    <div class = "row col-12">
+      <!-- <div class="alert alert-info col-12 fade" id = "message" role="alert"> -->
+      <!-- Total Investments upto 1,50,000 can be made to reduce tax. -->
+
+      <!-- </div> -->
+      <div class="col">
+        <label class = "label">Name</label>
+        <input type="text" class="form-control" id = "name"/>
+      </div>
+      <div class ="col">
+        <label class = "label">Total Income</label>
+        <input type="number" class="form-control" id="incomeValue" min = "0"value ="0"/>
+      </div>
+      <div class ="col">
+        <label class = "label">Taxable Income</label>
+        <span id="taxable"class = "form-control"></span>
+      </div>
+      <div class ="col">
+        <label class = "label">Income Tax</label>
+        <span id="taxtobepaid"class = "form-control"></span>
+      </div>
+    </div>
+	<div class = "row col-12">
+      <div class ="col">
+        <label class = "label">Total Excemptions(u/s10)</label>
+        <span id="excemptionValue" class = "form-control"></span>
+      </div>
+      <div class ="col">
+        <label class = "label">Total Deductions(80C)</label>
+        <span id="investmentsValue" class = "form-control"></span>
+      </div>
+      <div class ="col">
+        <label class = "label">Other Deductions</label>
+        <span id="deductionsValue"class = "form-control"></span>
+      </div>
+      <div class ="col">
+        <label class = "label">IT Payable</label>
+        <span id="payable"class = "form-control"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- /header -->
+  <div class = 'tabs'>
+    <nav>
+      <div class="nav nav-tabs" role="tablist">
+        <a class="nav-item nav-link active" data-toggle="tab" href="#income" role="tab">Income</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#excemptions" role="tab">Excemptions</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#investments" role="tab">Investments under 80CCE</a>
+        <a class="nav-item nav-link" data-toggle="tab" href="#deductions" role="tab">Deductions excluded from 80CCE</a>
+        <!-- <a class="nav-item nav-link" data-toggle="tab" href="#otherDeduction" role="tab">Other Deductions</a> -->
+      </div>
+    </nav>
+    <!-- /.tab content -->
+
+    <div class="tab-content row col-12">
+      <!-- Income Calculator -->
+      <section class="tab-pane fade show active" id = "income" role="tabpanel">
+        <div class = "row col-12">
+          <div class="col">
+            <label class = "label" title="Net Salary per Annum">Net Salary</label>
+            <input type="number" class="form-control income" min = "0" value = "0"/>
+          </div>
+          <div class="col">
+            <label class = "label" title="HRA Component by Employer per Annum">HRA</label>
+            <input type="number" class="form-control income" min = "0" value = "0"/>
+          </div>
+          <div class="col">
+            <label class = "label" title="Variable Pay per Annum">Variable</label>
+            <input type="number" class="form-control income" min = "0" value = "0"/>
+          </div>
+          <div class="col">
+            <label class = "label" title="Bonus per Annum">Bonus</label>
+            <input type="number" class="form-control income" min = "0" value = "0"/>
+          </div>
+          <div class="col">
+            <label class = "label" title="Income Previous Employer for the current assessment year">Income from Prev. Employer</label>
+            <input type="number" class="form-control income" min = "0" value = "0"/>
+          </div>
+          <div class="col">
+            <label class = "label" title="Income from Other Sources">Income From Other Sources</label>
+            <input type="number" class="form-control income" min = "0" value = "0"/>
+          </div></div>
+        </section>
+        <!-- Excemptions Calculator -->
+        <section class="tab-pane fade" id = "excemptions" role="tabpanel">
+          <div class ="row col-12">
+            <div class="col">
+              <label class = "label" title="Gifts">Gift Excemption</label>
+              <input type="number" class="form-control excemption" min = "0" value = "0"/>
+            </div>
+            <div class="col">
+              <label class = "label" title="A 100 per child per month upto 2 Children">Child Education Excemption</label>
+              <input type="number" class="form-control excemption" min = "0" value = "0" max="2400"/>
+            </div>
+            <div class="col">
+              <label class = "label" title="Only for Specially Abled">Convenience Allowance </label>
+              <input type="number" class="form-control excemption" min = "0" value = "0" max= "38400"/>
+            </div>
+            <div class="col">
+              <label class = "label" title="House Rent Allowance">HRA </label>
+              <input type="number" class="form-control excemption" min = "0" value = "0"/>
+            </div>
+            <div class="col">
+              <label class = "label" title="Leave Travel Allowance">LTA </label>
+              <input type="number" class="form-control excemption" min = "0" value = "0"/>
+            </div>
+            <div class="col">
+              <label class = "label" title="House Rent Allowance">Interest of Self occupied Home </label>
+              <input type="number" class="form-control excemption" min = "0" value = "0"/>
+            </div>
+            <div class="col">
+              <label class = "label" title="Leave Travel Allowance">Loss on Letout property </label>
+              <input type="number" class="form-control excemption" min = "0" value = "0"/>
+            </div>
+          </div>
+        </section>
+        <!-- 80C Calculator -->
+        <section class="tab-pane fade" id = "investments" role="tabpanel">
+          <div class ="row col-12">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="PF">PF</label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="VPF">VPF</label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Provident Fund">PF </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Mutual Funds">ELSS </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">LIC </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">NSC </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">ULIP </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">Infra Bonds </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">Pension Plans </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">Previous PF </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">Housing Loan principle </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">Tuition Fees </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">Annuity Plan </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">Fixed Deposit </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">CTD </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">Sukanya Samriddhi </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Life Insurance Plan">NPS </label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Postal Savings/NSCs">NABARD Bonds</label>
+              <input type="number" class="form-control 80c" min = "0" value = "0"/>
+            </div>
+          </div>
+        </section>
+        <!-- Deductions Calculator-->
+        <section class="tab-pane fade" id = "deductions" role="tabpanel">
+          <div class ="row col-12">
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Insurance premium paid for Self and Parents">Medical Insurance(80D)</label>
+              <input type="number" class="form-control deduction" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="A 100 per child per month upto 2 Children">Treatment of Dependent for Disability</label>
+              <input type="number" class="form-control deduction" min = "0" value = "0" max="125000"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="A 100 per child per month upto 2 Children">Treatment of Self for Disability</label>
+              <input type="number" class="form-control deduction" min = "0" value = "0" max="125000"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Only for Specially Abled">Self/Dependent Medical Treatment</label>
+              <input type="number" class="form-control deduction" min = "0" value = "0" max= "125000"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="House Rent Allowance">Educational Loan Interest </label>
+              <input type="number" class="form-control deduction" min = "0" value = "0"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Leave Travel Allowance">RG EquityInvestmentScheme </label>
+              <input type="number" class="form-control deduction" min = "0" value = "0"max = "25000"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Leave Travel Allowance">Donation </label>
+              <input type="number" class="form-control deduction" min = "0" value = "0" />
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Leave Travel Allowance">Employees' NPS </label>
+              <input type="number" class="form-control deduction" min = "0" value = "0"max = "50000"/>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+              <label class = "label" title="Leave Travel Allowance">Other Contributions </label>
+              <input type="number" class="form-control deduction" min = "0" value = "0" />
+            </div>
+          </div>
+        </section>
+        <!-- Others Calculator -->
+        <!-- <div class="tab-pane fade" id = "otherDeduction" role="tabpanel"> -->
+        <!-- <section class ="row"> -->
+        <!-- <div class="col"> -->
+        <!-- <label class = "label" title="Gifts">Standard Deduction</label> -->
+        <!-- <span class="form-control fixed">50000</span></div> -->
+        <!-- <div class="col"> -->
+        <!-- <label class = "label" title="">Professional Tax</label> -->
+        <!-- <span class="form-control fixed">2400</span> -->
+        <!-- </div> -->
+        <!-- </section> -->
+        <!-- /.tab content -->
+        <!-- </div> -->
+
+      </div>
+    </div>
+    <!-- /.content -->
+    <footer class="main-footer fixed-bottom">
+      <strong>This is a sample calculator based on  Income Tax rules for assessment year 2020-21.</strong></footer>
+      <!-- ./wrapper -->
+
+      <!-- jQuery -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <!-- Bootstrap 4 -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+      <!-- AdminLTE for demo purposes -->
+      <script src="taxc.js"></script>
+    </body>
+    </html>

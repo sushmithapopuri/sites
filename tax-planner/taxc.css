@@ -1,0 +1,27 @@
+.header{
+	background-color:#ebfafa;
+}
+.form-control{
+	border-radius:0 !important;
+	margin: 0 0 2%;
+}
+
+footer{
+	background-color:#ebfafa;
+}
+
+.tabs{
+	background-color:#ffeee6;
+	padding: .5rem;
+	margin:0;
+}
+
+.label{
+	text-align:center;
+	font-weight	:bold;
+	background-color:#e9ecef;
+	width : 100%;
+	padding :5px;
+	margin:0;
+}
+

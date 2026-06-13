@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Tax Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="Calculate Tax in effective Way" name="description" />
+    <meta content="Sushmitha" name="author" />
+    
+	<!-- ****************************Stylesheets****************************** -->
+	<link href="assets/plugins/css/pace-theme-flash.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="assets/plugins/css/jquery.scrollbar.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="assets/plugins/css/select2.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link class="main-stylesheet" href="assets/modern.css" rel="stylesheet" type="text/css" />
+	<!-- ****************************Stylesheets****************************** -->
+  </head>
+  <body class="fixed-header horizontal-menu horizontal-app-menu ">
+    
+	<!-- START PAGE-CONTAINER -->
+    <div class="header p-r-0 bg-primary">
+      <div class="header-inner header-md-height">
+        <!-- <a href="#" class="btn-link toggle-sidebar d-lg-none text-white sm-p-l-0 btn-icon-link" data-toggle="horizontal-menu"> -->
+          <!-- <i class="pg-icon">menu</i> -->
+        <!-- </a> -->
+          <div class="brand inline no-border d-sm-inline-block text-white">
+            taxC - Plan better , Save More
+          </div>
+        <div class="pull-right">
+                   <span class = "text-white">For FY2019-20</span>
+                  </div>
+      </div>
+    </div>
+    <div class="page-container ">
+      <!-- START PAGE CONTENT WRAPPER -->
+      <div class="page-content-wrapper ">
+        <!-- START PAGE CONTENT -->
+        <div class="content ">
+          <!-- START CONTAINER FLUID -->
+          <div class=" container    container-fixed-lg">
+            <div id="rootwizard" class="m-t-50">
+              <!-- *************************************Nav tabs*********************************************************** -->
+              <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm" role="tablist" data-init-reponsive-tabs="dropdownfx">
+                <li class="nav-item">
+                  <a class="active d-flex align-items-center" data-toggle="tab" href="#tab0" data-target="#tab0" role="tab"><span>Basic Information</span></a>
+                </li>
+				<li class="nav-item">
+                  <a class="d-flex align-items-center" data-toggle="tab" href="#tab1" data-target="#tab1" role="tab"><span>Excemptions</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="d-flex align-items-center" data-toggle="tab" href="#tab2" data-target="#tab2" role="tab"><span>Investment Details</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="d-flex align-items-center" data-toggle="tab" href="#tab3" data-target="#tab3" role="tab"><span>Deduction Detail</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="d-flex align-items-center" data-toggle="tab" href="#tab4" data-target="#tab4" role="tab"><span>Summary</span></a>
+                </li>
+              </ul>
+               <!-- *************************************Nav tabs*********************************************************** -->
+              <div class="tab-content">
+			  
+			  
+<!-- ************************************************************************************************************* -->
+                <div class="tab-pane padding-20 sm-no-padding active slide-left" id="tab0">
+                  <div class="row row-same-height">
+                    <div class="col-md-5 b-r b-dashed b-grey">
+                      <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                        
+                        <h2>Hello <div class="form-group form-group-default">
+<label class="fade">Name</label>
+<input type="text" class="form-control" id = "name">
+</div></h2>
+                        <p>Please share your Income details for Tax Computation</p>
+						Income from Salary, house property(property can be self-occupied or rented out), other sources(fixed deposits, savings account),
+capital gains(mutual funds or house property) and business and profession(other business/freelancing) is taxable.
+						
+                      </div>
+					  
+					  
+                    </div>
+                    <div class="col-md-7">
+                      <div class="padding-30 sm-padding-5">
+					  <div class="form-group form-group-default">
+<label class="fade">Total Income</label>
+<input type="number" class="form-control" id = "incomeValue" min = "0" value = "0" >
+</div>
+                       <h5>(OR)</h5>
+                        <div class="form-group-attached">
+<div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Basic Salary</label>
+<input type="number" class="form-control income" min = "0" value = "0"/>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>HRA</label>
+<input type="number" class="form-control income" min = "0" value = "0"/>
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Variable</label>
+<input type="number" class="form-control income" min = "0" value = "0"/>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Bonus</label>
+<input type="number" class="form-control income" min = "0" value = "0"/>
+</div>
+</div>
+</div>
+<div class="form-group form-group-default">
+<label>Income from Previous Employer</label>
+<input type="number" class="form-control income" min = "0" value = "0"/>
+</div>
+<div class="form-group form-group-default">
+<label>Income from Other Sources</label>
+<input type="number" class="form-control income" min = "0" value = "0"/>
+</div>
+</div>
+                      </div>
+                    </div>
+					
+                  </div>
+                </div>
+<!-- ************************************************************************************************************* -->
+  <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab1">
+                  <div class="row row-same-height">
+                    <div class="col-md-5 b-r b-dashed b-grey ">
+                      <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                        <h2>Excemptions</h2>
+                        <p>Certain part of income is excempted from taxation for salaried employees.</p>
+                        <p class="small hint-text">The excemption  includes :</p>
+						<ul class="small hint-text">
+						<li>Amount gifted by others</li>
+						<li>HRA(Minimum of HRA Component of Salary, Actual Rent paid and 40% and 50% of [Basic+DA] in non metros and metros respectively)</li>
+						<li>Child Education Excemption for 1200 a year for a maximum of 2 Children</li>
+						<li>Convenience Allowance for Specially Abled  Persons</li>
+						<li>Any losses incurred on Housing</li>
+						</li></ul>
+                          </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="padding-30 sm-padding-5">
+						 <div class="form-group form-group-default">
+<label class="fade">Total Excempted Value</label>
+<span class="form-control" id = "excemptionValue" min = "0" value = "0" >
+</div>
+                       <h5>Excemptions under u/s 10</h5>
+                        <div class="form-group-attached">
+
+<div class="form-group form-group-default">
+<label>Gift Excemption</label>
+<input type="number" class="form-control excemption" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Convenience Allowance</label>
+<input type="number" class="form-control excemption" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Child Education Excemption</label>
+<input type="number" class="form-control excemption" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>HRA</label>
+<input type="number" class="form-control excemption" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Interest of Self occupied Home</label>
+<input type="number" class="form-control excemption" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Loss on Letout property</label>
+<input type="number" class="form-control excemption" min="0" value="0">
+</div>
+</div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+           
+                
+<!-- ************************************************************************************************************* -->
+  <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab2">
+                  <div class="row row-same-height">
+                     <div class="col-md-5 b-r b-dashed b-grey ">
+                      <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                        <h2>Deductions under 80C</h2>
+                        <p>Any Investments/Savings for retirement / child Welfare Purposes upto a maximum of 1,50,000 per annum are excempted from taxation</p>
+                        <p class="small hint-text">The excemption includes :</p>
+						<ul class="small hint-text">
+						<li>Retirement related Investments like PF,Voluntary PF, PPF ..</li>
+						<li>Tax Saving Mutual Funds like ELSS</li>
+						<li>Tax Saving Government Bonds, Corporate Bonds .....</li>
+						<li>Unit linked Insurance Plans ,LIC , Child Welfare plans like Sukanya Samruddhi</li>
+						<li>Saving Schemes like NPS, NSC,</li>
+						<li>Housing Loan Principle paid (for first home buyers)</li>
+						</li></ul>
+                          </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="padding-30 sm-padding-5">
+						 <div class="form-group form-group-default">
+<label class="fade">Total Deductions(80C)</label>
+<span class="form-control" id = "investmentsValue" min = "0" value = "0" >
+</div>
+                       <h5>Deductions Under 80CCE</h5>
+                        <div class="form-group-attached">
+<div class="row clearfix">
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>PF</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>VPF</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>PPF</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>ELSS</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>ULIP</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>LIC</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>NSC</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>Infra Bonds</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>NPS</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div>
+</div><div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Previous PF</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Tuition Fees</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div>
+</div><div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Pension Plans</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Annuity Plan</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div></div></div>
+<div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Fixed Deposit</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>CTD</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+</div>
+</div>
+<div class="form-group form-group-default">
+<label>Sukanya Samriddhi Account</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Housing Loan Principle</label>
+<input type="number" class="form-control 80c" min="0" value="0">
+</div>
+
+</div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+<!-- *************************************************************************************************** -->
+                <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab3">
+                  <div class="row row-same-height">
+                    <div class="col-md-5 b-r b-dashed b-grey ">
+                      <div class="padding-30 sm-padding-5 sm-m-t-15 m-t-50">
+                        <h2>Other Deductions</h2>
+                        <p>Certain Other Expenditure is tax free</p>
+                        <p class="small hint-text">The expenditure following under this category are :</p>
+						<ul class="small hint-text">
+						<li>Medical Insurance Premium paid for self and family(spouse, children and parents)</li>
+						<li>Donations made to certain relief funds and charitable institutions</li>
+						<li>Interest paid on Educational Loan</li>
+						<li>NPS Contribution upto 50,000 in addition to 1,50,000 of 80C</li>
+						<li>Expenditure towards health Chekup for self and parents(based on eligibility)</li>
+						<li>Expenditure incurred for treatment od disease/disability of self/dependents</li>
+						</li></ul>
+                          </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="padding-30 sm-padding-5">
+						 <div class="form-group form-group-default">
+<label class="fade">Other Deductions</label>
+<span class="form-control" id = "deductionsValue" min = "0" value = "0" >
+</div>
+                       <h5>Deductions Excluded from 80CCE</h5>
+                        <div class="form-group-attached">
+<div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Medical Insurance(80D)</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div></div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Donation</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div>
+</div>
+</div>
+<div class="row clearfix">
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>Educational Loan Interest</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div>
+</div>
+<div class="col-sm-6">
+<div class="form-group form-group-default">
+<label>NPS(Other than Employer)</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div></div>
+</div>
+
+
+<div class="form-group form-group-default">
+<label>Treatment of Self/Dependent for Disability</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Treatment of Self for Disability for listed Diseases</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Rajeev Gandhi Equity Investment Scheme</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div>
+<div class="form-group form-group-default">
+<label>Other Deductions</label>
+<input type="number" class="form-control deduction" min="0" value="0">
+</div>
+
+</div>
+                      </div>
+                      </div>
+                    </div>
+            
+
+				  </div>
+				  <!-- **************************************************************************************************** -->
+                <div class="tab-pane slide-left padding-20 sm-no-padding" id="tab4">
+                  <h1><span id = "user"></span> Thank you for using taxC</h1>
+				  <ul id = "message"></ul>
+                </div>
+                <div class="padding-20 sm-padding-5 sm-m-b-20 sm-m-t-20 bg-white clearfix">
+                  <ul class="pager wizard no-style">
+                    <li class="next">
+                      <button aria-label="" class="btn btn-primary btn-cons from-left pull-right" type="button">
+                        <span>Next</span>
+                        
+                      </button>
+                    </li>
+                    <!-- <li class="next finish hidden"> -->
+                      <!-- <button aria-label="" class="btn btn-primary btn-cons from-left pull-right" type="button"> -->
+                        <!-- <span>Finish</span> -->
+                       
+                      <!-- </button> -->
+                    <!-- </li> -->
+                    <li class="previous first hidden">
+                      <button aria-label="" class="btn btn-default btn-cons from-left pull-right" type="button">
+                        <span>First</span>
+                        
+                      </button>
+                    </li>
+                    <li class="previous">
+                      <button aria-label="" class="btn btn-default btn-cons from-left pull-right" type="button">
+                        <span>Previous</span>
+                        
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="wizard-footer padding-20 bg-contrast-low">
+				<div class="row clearfix">
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>Taxable Income</label>
+<span id = "taxable">
+</div></div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>Income tax</label>
+<span id = "taxtobepaid">
+</div>
+</div>
+<div class="col-sm-4">
+<div class="form-group form-group-default">
+<label>Net Payable Amount</label>
+<span id = "payable">
+</div></div>
+</div>
+                  <p class="small hint-text pull-left no-margin">
+                    <span><a href = "mailto:giligails@gmail.com">Share your Feedback</a> </span >
+                  </p>
+                 
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END CONTAINER FLUID -->
+        </div>
+        <!-- END PAGE CONTENT -->
+        <!-- START COPYRIGHT -->
+        <!-- START CONTAINER FLUID -->
+        <!-- START CONTAINER FLUID -->
+        <div class=" container   container-fixed-lg footer">
+          <div class="copyright sm-text-center">
+            <p class="small-text no-margin pull-left sm-pull-reset">
+              The Computation logic is applicable for FY 2019-20 only. The computed tax might vary from actual tax depending on the clauses and proofs submitted.
+            </p>
+            <p class="small no-margin pull-right sm-pull-reset">
+              Developed by @SushmithaPopuri
+            </p>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- END COPYRIGHT -->
+      </div>
+      <!-- END PAGE CONTENT WRAPPER -->
+    </div>
+    <!-- END PAGE CONTAINER -->
+    <!-- BEGIN VENDOR JS -->
+    <script src="assets/plugins/js/pace.min.js" type="text/javascript"></script>
+    <!--  A polyfill for browsers that don't support ligatures: remove liga.js if not needed-->
+    <script src="assets/plugins/js/liga.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/modernizr.custom.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/popper.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery-easy.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery.unveil.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery.ioslist.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery.actual.min.js"></script>
+    <script src="assets/plugins/js/jquery.scrollbar.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/js/classie.js"></script>
+    <script src="assets/plugins/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/js/jquery.validate.min.js" type="text/javascript"></script>
+    <!-- <script src="assets/plugins/js/bootstrap-datepicker.js" type="text/javascript"></script> -->
+    <script src="assets/plugins/js/moment.min.js"></script>
+    <!-- <script src="assets/plugins/js/daterangepicker.js"></script> -->
+    <!-- <script src="assets/plugins/bootstrap-timepicker/bootstrap-timepicker.min.js"></script> -->
+    <!-- END VENDOR JS -->
+    <!-- BEGIN CORE TEMPLATE JS -->
+    <script src="assets/pages.min.js"></script>
+    <!-- END CORE TEMPLATE JS -->
+    <!-- BEGIN PAGE LEVEL JS -->
+    <script src="assets/form_wizard.js" type="text/javascript"></script>
+    <script src="assets/scripts.js" type="text/javascript"></script>
+	<script src="assets/taxc.js"></script>
+    <!-- END PAGE LEVEL JS -->
+  </body>
+</html>

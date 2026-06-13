@@ -1,0 +1,36 @@
+body {
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+.tree-folder, .tree-file {
+  font-size: 1.1em;
+}
+.tree-folder-header {
+  padding: 8px 0 8px 8px;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+.tree-folder-header:hover {
+  background: #e3f2fd;
+}
+.tree-folder {
+  margin-bottom: 4px;
+}
+.tree-file {
+  margin-bottom: 4px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(33,150,243,0.07);
+  padding: 6px 8px;
+}
+.video-title {
+  color: #1976d2;
+  font-weight: 500;
+}
+.tree-children {
+  margin-left: 16px;
+  border-left: 2px solid #e3f2fd;
+  padding-left: 8px;
+}

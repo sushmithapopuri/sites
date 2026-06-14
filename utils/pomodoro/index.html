@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Pomodoro Focus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Kanban Focus Board</h1>
+        <div class="header-actions">
+            <button id="syncFileBtn" class="secondary-btn" style="margin-right: 15px; background-color: #fefcbf;">Sync mypomodoro.json</button>
+            <button id="addTaskBtn" class="primary-btn">+ New Task</button>
+        </div>
+    </header>
+
+    <main class="kanban-board">
+        <!-- New / Pending Column -->
+        <div class="kanban-column" data-status="pending">
+            <h2 class="column-header">New</h2>
+            <div class="kanban-cards" id="col-pending"></div>
+        </div>
+        
+        <!-- In Progress Column -->
+        <div class="kanban-column" data-status="in-progress">
+            <h2 class="column-header">In Progress</h2>
+            <div class="kanban-cards" id="col-in-progress"></div>
+        </div>
+        
+        <!-- Completed Column -->
+        <div class="kanban-column" data-status="completed">
+            <h2 class="column-header">Completed</h2>
+            <div class="kanban-cards" id="col-completed"></div>
+        </div>
+    </main>
+
+    <!-- Pomodoro Timer Modal -->
+    <div id="pomodoroModal" class="modal hidden fade-in">
+        <div class="modal-content pomodoro-mode">
+            <button class="close-btn" id="closePomodoroBtn">&times;</button>
+            <h2 id="focusTaskTitle" class="focus-title">Focusing...</h2>
+            
+            <div class="pomodoro-container">
+                <div class="tomato-wrapper">
+                    <div class="leaf"></div>
+                    <div class="tomato">
+                        <div class="tomato-fill" id="tomatoFill"></div>
+                        <div class="time-display" id="timeDisplay">40:00</div>
+                    </div>
+                </div>
+                <div class="timer-controls">
+                    <button class="ctrl-btn" id="startStopBtn">Start</button>
+                    <button class="ctrl-btn" id="editTimeBtn">Edit Timer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit/Add Task Modal -->
+    <div id="taskModal" class="modal hidden fade-in">
+        <div class="modal-content">
+            <button class="close-btn" id="closeTaskModalBtn">&times;</button>
+            <h3 id="modalTitle">New Task</h3>
+            <input type="text" id="taskSummary" placeholder="Task Summary (e.g. Wireframe homepage)">
+            <textarea id="taskDescription" placeholder="Description details..."></textarea>
+            
+            <div class="form-row">
+                <div class="form-group w-100">
+                    <label>Priority</label>
+                    <select id="taskPriority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                </div>
+                <div class="form-group w-100">
+                    <label>Est. Time (mins)</label>
+                    <input type="number" id="taskEstimatedTime" placeholder="e.g. 40" min="1" value="40">
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="cancelTaskBtn" class="secondary-btn">Cancel</button>
+                <button id="saveTaskBtn" class="primary-btn">Save</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js?v=3"></script>
+</body>
+</html>

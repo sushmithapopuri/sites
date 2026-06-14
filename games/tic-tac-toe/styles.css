@@ -1,0 +1,197 @@
+:root {
+    --bg-color: #f5f5f6;
+    --surface-color: #ffffff;
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --primary: #6200ea;
+    --primary-variant: #3700b3;
+    --secondary: #03dac6;
+    --accent-x: #1976d2; /* Blue */
+    --accent-o: #d32f2f; /* Red */
+    --divider: #e0e0e0;
+    --shadow-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    --shadow-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: var(--surface-color);
+    border-radius: 8px; /* Standard Material corner radius */
+    box-shadow: var(--shadow-2);
+}
+
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.15px;
+}
+
+.mode-selector {
+    display: flex;
+    background-color: var(--divider);
+    border-radius: 24px;
+    padding: 4px;
+    gap: 4px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.mode-selector button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mode-selector button.active {
+    background-color: var(--surface-color);
+    color: var(--primary);
+    box-shadow: var(--shadow-1);
+}
+
+.status {
+    font-size: 1.25rem;
+    font-weight: 500;
+    min-height: 1.5em;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    transition: color 0.3s;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background-color: var(--divider);
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background-color: var(--surface-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    user-select: none;
+}
+
+.cell:hover {
+    background-color: #f5f5f5;
+}
+
+.cell.x {
+    color: var(--accent-x);
+}
+
+.cell.o {
+    color: var(--accent-o);
+}
+
+.cell.win {
+    background-color: #e3f2fd;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+#reset-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: var(--shadow-1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#reset-btn:hover {
+    background-color: var(--primary-variant);
+    box-shadow: var(--shadow-2);
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.score-card {
+    flex: 1;
+    background-color: var(--surface-color);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    box-shadow: var(--shadow-1);
+    border: 1px solid var(--divider);
+}
+
+.player-name {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.score-value {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-primary);
+}

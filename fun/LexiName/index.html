@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Acrostic Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-shell">
+  <!-- Top App Bar -->
+  <header class="top-bar">
+    <div style="display:flex; align-items:center;">
+        <div class="top-bar-icon">A</div>
+        <span class="top-bar-title">Name<span>Acrostic</span></span>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <div class="content-area">
+    <section class="panel-center">
+      <div class="md-card input-card">
+        <div class="card-header">
+          <span class="card-title">Generate Acrostic</span>
+        </div>
+        <div class="card-body">
+          <p class="description">Enter your name to generate a beautiful, personalized acrostic poem based on positive adjectives.</p>
+          <div class="input-group">
+            <input type="text" id="name-input" class="nm-input" placeholder="Enter a name (e.g., Alice)" autocomplete="off">
+            <button id="btn-generate" class="md-btn md-btn-filled">Generate</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="md-card result-card hidden" id="result-container">
+        <div class="card-header">
+          <span class="card-title">Your Acrostic</span>
+          <button id="btn-copy" class="md-btn md-btn-tonal copy-btn">Copy</button>
+        </div>
+        <div class="card-body" id="acrostic-output">
+          <!-- Acrostic items will be injected here -->
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="adjectives.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

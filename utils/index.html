@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utils Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #0f172a; --text-color: #f8fafc; --card-bg: rgba(30, 41, 59, 0.7); --card-border: rgba(255, 255, 255, 0.1); --primary: #3b82f6; --secondary: #8b5cf6; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; background-image: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%); background-attachment: fixed; }
+        header { margin-top: 4rem; margin-bottom: 3rem; text-align: center; }
+        h1 { font-size: 3rem; font-weight: 800; margin: 0; background: linear-gradient(135deg, var(--text-color) 0%, #94a3b8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { color: #94a3b8; font-size: 1.1rem; margin-top: 0.75rem; }
+        .back-link { position: absolute; top: 1.5rem; left: 1.5rem; color: #94a3b8; text-decoration: none; font-weight: 600; transition: color 0.2s; }
+        .back-link:hover { color: #f8fafc; }
+        .dashboard { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; max-width: 1000px; padding: 0 2rem; box-sizing: border-box; margin-bottom: 4rem; }
+        .tile { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; text-decoration: none; color: var(--text-color); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); backdrop-filter: blur(12px); display: flex; flex-direction: column; gap: 1rem; position: relative; overflow: hidden; }
+        .tile::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); opacity: 0; transition: opacity 0.3s ease; }
+        .tile:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); background: rgba(45, 55, 72, 0.8); border-color: rgba(255, 255, 255, 0.2); }
+        .tile:hover::before { opacity: 1; }
+        .tile-icon { font-size: 2.5rem; margin-bottom: 0.5rem; transition: transform 0.3s ease; }
+        .tile:hover .tile-icon { transform: scale(1.1); }
+        .tile-title { font-size: 1.5rem; font-weight: 600; margin: 0; }
+        .tile-desc { color: #94a3b8; font-size: 0.95rem; margin: 0; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <a href="../" class="back-link">← Back to Home</a>
+    <header>
+        <h1>Utilities</h1>
+        <p>Helpful tools and scripts</p>
+    </header>
+    <div class="dashboard">
+        <a href="pomodoro/index.html" class="tile">
+            <div class="tile-icon">🍅</div>
+            <h2 class="tile-title">Pomodoro</h2>
+            <p class="tile-desc">A Pomodoro timer application.</p>
+        </a>
+        <a href="stylist/index.html" class="tile">
+            <div class="tile-icon">🎨</div>
+            <h2 class="tile-title">Stylist</h2>
+            <p class="tile-desc">Styling and CSS utility tool.</p>
+        </a>
+    </div>
+</body>
+</html>

@@ -138,6 +138,45 @@ async function syncToDisk() {
     }
 }
 
+// Function to initialize file from handle
+async function initFileFromDir(dirHandle) {
+    fileHandle = await dirHandle.getFileHandle('pomodoro.json', { create: true });
+    const file = await fileHandle.getFile();
+    if (file.size === 0) {
+        // Write blank state if it's empty
+        await syncToDisk();
+    } else {
+        await loadStateFromFile();
+    }
+    syncInitialized = true;
+    if (syncFileBtn) {
+        syncFileBtn.textContent = 'Sync Active ✅';
+        syncFileBtn.style.color = '#34c759';
+    }
+}
+
+// Attempt to restore automatically on load
+window.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const storedHandle = await getHandle();
+        if (storedHandle && (await storedHandle.queryPermission({mode: 'readwrite'})) === 'granted') {
+            if (storedHandle.kind === 'directory') {
+                await initFileFromDir(storedHandle);
+            } else {
+                fileHandle = storedHandle;
+                await loadStateFromFile();
+                syncInitialized = true;
+                if (syncFileBtn) {
+                    syncFileBtn.textContent = 'Sync Active ✅';
+                    syncFileBtn.style.color = '#34c759';
+                }
+            }
+        }
+    } catch(e) {
+        console.warn("Auto-restore yielded.");
+    }
+});
+
 // Global touch handler to implicitly restore cross-reload file syncing safely
 document.body.addEventListener('click', async () => {
     if (syncInitialized || fileHandle) return;
@@ -146,12 +185,16 @@ document.body.addEventListener('click', async () => {
         if (storedHandle) {
             const hasPerm = await verifyPermission(storedHandle);
             if (hasPerm) {
-                fileHandle = storedHandle;
-                await loadStateFromFile();
-                syncInitialized = true;
-                if (syncFileBtn) {
-                    syncFileBtn.textContent = 'Sync Active ✅';
-                    syncFileBtn.style.color = '#34c759';
+                if (storedHandle.kind === 'directory') {
+                    await initFileFromDir(storedHandle);
+                } else {
+                    fileHandle = storedHandle;
+                    await loadStateFromFile();
+                    syncInitialized = true;
+                    if (syncFileBtn) {
+                        syncFileBtn.textContent = 'Sync Active ✅';
+                        syncFileBtn.style.color = '#34c759';
+                    }
                 }
             }
         }
@@ -171,16 +214,9 @@ if (syncFileBtn) {
             return;
         }
         try {
-            const [handle] = await window.showOpenFilePicker({
-                types: [{ description: 'JSON Files', accept: {'application/json': ['.json']} }],
-                multiple: false
-            });
-            fileHandle = handle;
-            await saveHandle(fileHandle);
-            
-            await loadStateFromFile();
-            syncFileBtn.textContent = 'Sync Active ✅';
-            syncFileBtn.style.color = '#34c759';
+            const dirHandle = await window.showDirectoryPicker();
+            await saveHandle(dirHandle);
+            await initFileFromDir(dirHandle);
         } catch (e) {
             console.error("Link Cancelled:", e);
         }
@@ -420,6 +456,13 @@ startStopBtn.addEventListener('click', () => {
         }, 1000);
         startStopBtn.textContent = 'Stop';
         isRunning = true;
+        if (currentFocusTaskId) {
+            const task = tasks.find(t => t.id === currentFocusTaskId);
+            if (task && task.status !== 'in-progress') {
+                task.status = 'in-progress';
+                renderTasks();
+            }
+        }
         saveTasks(); 
     }
 });
